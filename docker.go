@@ -25,8 +25,8 @@ func Initialize(host string) error {
 	// networks, err := client.NetworkList(context.Background(), dockType.NetworkListOptions{})
 	// if err == nil {
 	// 	for _, network := range networks {
-	// 		if network.Name == "nanobox" {
-	// 			viper.Set("nanobox-network", network.ID)
+	// 		if network.Name == "microbox" {
+	// 			viper.Set("microbox-network", network.ID)
 	// 			break
 	// 		}
 	// 	}

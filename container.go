@@ -1,9 +1,10 @@
 package docker
 
 import (
-	"golang.org/x/net/context"
 	"strings"
 	"time"
+
+	"golang.org/x/net/context"
 
 	dockType "github.com/docker/engine-api/types"
 	dockContainer "github.com/docker/engine-api/types/container"
@@ -90,7 +91,7 @@ func CreateContainer(conf ContainerConfig) (dockType.ContainerJSON, error) {
 		// allow for using a different network name
 		netName := ""
 		if conf.NetName == "" {
-			netName = "nanobox"
+			netName = "microbox"
 		} else {
 			netName = conf.NetName
 		}

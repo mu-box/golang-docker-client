@@ -1,3 +1,3 @@
 # golang-docker-client
 
-This is a client nanobox uses for nanoagent as well as nanobox local
+This is a client microbox uses for microagent as well as microbox local
