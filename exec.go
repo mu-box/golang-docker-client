@@ -85,5 +85,5 @@ func ExecPipe(resp dockType.HijackedResponse, inStream io.Reader, outStream, err
 
 // resize the exec.
 func ContainerExecResize(id string, height, width int) error {
-	return client.ContainerExecResize(context.Background(), id, dockType.ResizeOptions{height, width})
+	return client.ContainerExecResize(context.Background(), id, dockType.ResizeOptions{Height: height, Width: width})
 }

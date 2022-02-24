@@ -98,7 +98,7 @@ func CreateContainer(conf ContainerConfig) (dockType.ContainerJSON, error) {
 
 		hostConfig.NetworkMode = dockContainer.NetworkMode(netName)
 		netConfig.EndpointsConfig = map[string]*dockNetwork.EndpointSettings{
-			netName: &dockNetwork.EndpointSettings{
+			netName: {
 				IPAMConfig: &dockNetwork.EndpointIPAMConfig{IPv4Address: conf.IP},
 			},
 		}
@@ -140,10 +140,10 @@ func ContainerRemove(id string) error {
 		return err
 	}
 
-	timeout := 0 * time.Second
-	if err := client.ContainerStop(context.Background(), id, &timeout); err != nil {
-		// return err
-	}
+	// timeout := 0 * time.Second
+	// if err := client.ContainerStop(context.Background(), id, &timeout); err != nil {
+	// 	return err
+	// }
 
 	return client.ContainerRemove(context.Background(), id, dockType.ContainerRemoveOptions{RemoveVolumes: true, Force: true})
 }
@@ -204,11 +204,10 @@ func ContainerSliceToConfigSlice(cs []dockType.Container) []ContainerConfig {
 }
 
 func GetIP(i interface{}) (ip string) {
-	switch i.(type) {
+	switch c := i.(type) {
 	default:
 
 	case dockType.Container:
-		c := i.(dockType.Container)
 		if c.NetworkSettings != nil {
 			for _, val := range c.NetworkSettings.Networks {
 				if val.IPAddress != "" {
@@ -218,7 +217,6 @@ func GetIP(i interface{}) (ip string) {
 			}
 		}
 	case dockType.ContainerJSON:
-		c := i.(dockType.ContainerJSON)
 		ip = c.NetworkSettings.IPAddress
 		if ip == "" {
 			for _, val := range c.NetworkSettings.Networks {

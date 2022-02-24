@@ -4,6 +4,7 @@ import (
 	"errors"
 	"io"
 	"io/ioutil"
+	"strings"
 
 	dockType "github.com/docker/engine-api/types"
 	"golang.org/x/net/context"
@@ -46,7 +47,7 @@ func ImagePull(image string, output io.Writer) (Image, error) {
 	}
 
 	ctx := context.Background()
-	rc, err := client.ImagePull(ctx, image, pullOptions)
+	rc, err := client.ImagePull(ctx, canonImage(image), pullOptions)
 	if err != nil {
 		return Image{}, err
 	}
@@ -103,4 +104,16 @@ func ImageInspect(imageID string) (Image, error) {
 func ImageRemove(imageID string) error {
 	_, err := client.ImageRemove(context.Background(), imageID, dockType.ImageRemoveOptions{Force: true, PruneChildren: true})
 	return err
+}
+
+func canonImage(image string) string {
+	parts := strings.Split(image, "/")
+
+	if len(parts) > 2 {
+		return image
+	} else if len(parts) > 1 {
+		return strings.Join(append([]string{"docker.io"}, parts...), "/")
+	}
+
+	return strings.Join(append([]string{"docker.io", "library"}, parts...), "/")
 }
