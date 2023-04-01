@@ -13,8 +13,9 @@ require (
 require (
 	github.com/Microsoft/go-winio v0.5.2 // indirect
 	github.com/Sirupsen/logrus v0.11.1-0.20161202023507-881bee4e20a5 // indirect
-	github.com/docker/distribution v2.6.0-rc.1.0.20161206220753-15dc1296affa+incompatible // indirect
+	github.com/docker/distribution v2.8.0+incompatible // indirect
 	github.com/docker/go-units v0.3.2-0.20161130221531-e30f1e79f3cd // indirect
+	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/runc v1.0.0-rc2.0.20161206212554-47ea5c75ebeb // indirect
 	golang.org/x/sys v0.0.0-20220222200937-f2425489ef4c // indirect
 )
