@@ -3,7 +3,7 @@ module github.com/mu-box/golang-docker-client
 go 1.20
 
 require (
-	github.com/docker/docker v1.4.2-0.20161207153530-8b7d0764256f
+	github.com/docker/docker v1.6.1
 	github.com/docker/engine-api v0.4.1-0.20160908232104-4290f40c0566
 	github.com/docker/go-connections v0.2.2-0.20161115161849-4ccf312bf1d3
 	github.com/jcelliott/lumber v0.0.0-20160324203708-dd349441af25
