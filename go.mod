@@ -7,7 +7,7 @@ require (
 	github.com/docker/engine-api v0.4.1-0.20160908232104-4290f40c0566
 	github.com/docker/go-connections v0.2.2-0.20161115161849-4ccf312bf1d3
 	github.com/jcelliott/lumber v0.0.0-20160324203708-dd349441af25
-	golang.org/x/net v0.7.0
+	golang.org/x/net v0.17.0
 )
 
 require (
@@ -17,5 +17,5 @@ require (
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/runc v1.1.5 // indirect
-	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
 )
